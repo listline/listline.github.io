@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-11-11T10:28:36.767Z</updated>
+  <updated>2023-11-11T12:35:15.152Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>洛谷P2078朋友</title>
+    <link href="http://example.com/2023/11/11/friends/"/>
+    <id>http://example.com/2023/11/11/friends/</id>
+    <published>2023-11-11T12:33:30.692Z</published>
+    <updated>2023-11-11T12:35:15.152Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="题目背景"><a href="#题目背景" class="headerlink" title="题目背景"></a>题目背景</h2><p>小明在 A 公司工作，小红在 B 公司工作。</p><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>这两个公司的员工有一个特点：一个公司的员工都是同性。</p><p>A 公司有 $N$ 名员工，其中有 $P$ 对朋友关系。B 公司有 $M$ 名员工，其中有 $Q$ 对朋友关系。朋友的朋友一定还是朋友。</p><p>每对朋友关系用两个整数 $(X_i,Y_i)$ 组成，表示朋友的编号分别为 $X_i,Y_i$。男人的编号是正数，女人的编号是负数。小明的编号是 $1$，小红的编号是 $-1$。</p><p>大家都知道，小明和小红是朋友，那么，请你写一个程序求出两公司之间，通过小明和小红认识的人最多一共能配成多少对情侣（包括他们自己）。</p><h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>输入的第一行，包含 $4$ 个空格隔开的正整数 $N,M,P,Q$。</p><p>之后 $P$ 行，每行两个正整数 $X_i,Y_i$。</p><p>之后 $Q$ 行，每行两个负整数 $X_i,Y_i$。</p><h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>输出一行一个正整数，表示通过小明和小红认识的人最多一共能配成多少对情侣（包括他们自己）。</p><h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 #1"></a>样例 #1</h2><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入 #1"></a>样例输入 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">4 3 4 2</span><br><span class="line">1 1</span><br><span class="line">1 2</span><br><span class="line">2 3</span><br><span class="line">1 3</span><br><span class="line">-1 -2</span><br><span class="line">-3 -3</span><br></pre></td></tr></table></figure><h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 #1"></a>样例输出 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2</span><br></pre></td></tr></table></figure><h2 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h2><p>对于 $30 %$ 的数据，$N,M \le 100$，$P,Q \le 200$；</p><p>对于 $80 %$ 的数据，$N,M \le 4 \times 10^3$，$P,Q \le 10^4$；</p><p>对于 $100 %$ 的数据，$N,M \le 10^4$，$P,Q \le 2 \times 10^4$。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int n, m, p, q,x ,y, f[200005];</span><br><span class="line">int find(int x)&#123;</span><br><span class="line">    return x == f[x]? x : f[x] = find(f[x]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">    int sum1 = 0, sum2 = 0;</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;m&gt;&gt;p&gt;&gt;q;</span><br><span class="line">    for (int i = 1; i &lt;= n+m;i++)</span><br><span class="line">        f[i] = i;</span><br><span class="line">    while(p--)&#123;</span><br><span class="line">        cin&gt;&gt;x&gt;&gt;y;</span><br><span class="line">        if(find(x)!= find(y))</span><br><span class="line">            f[find(x)] = find(y);</span><br><span class="line">    &#125;</span><br><span class="line">    while(q--)&#123;</span><br><span class="line">        cin&gt;&gt;x&gt;&gt;y;</span><br><span class="line">        x *= -1;  //输入的是负数，要将其负号去除，才能进行查询</span><br><span class="line">        y *= -1;</span><br><span class="line">        if(find(x+n)!= find(y+n))</span><br><span class="line">            f[find(x+n)] = find(y+n);</span><br><span class="line">    &#125;</span><br><span class="line">    for (int i = 1; i &lt;= n;i++)&#123;  //求出n个人中，有多少人与1号人是朋友（包括1号人自己）</span><br><span class="line">        if(find(i) == find(1))</span><br><span class="line">            sum1++;</span><br><span class="line">    &#125;</span><br><span class="line">    for (int i = n + 1; i &lt;= n + m;i++)&#123;</span><br><span class="line">        if(find(i) == find(n + 1))</span><br><span class="line">            sum2++;</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;min(sum1, sum2)&lt;&lt;endl;  //输出最小值</span><br><span class="line">        return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;题目背景&quot;&gt;&lt;a href=&quot;#题目背景&quot; class=&quot;headerlink&quot; title=&quot;题目背景&quot;&gt;&lt;/a&gt;题目背景&lt;/h2&gt;&lt;p&gt;小明在 A 公司工作，小红在 B 公司工作。&lt;/p&gt;
+&lt;h2 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>洛谷P1111修复公路</title>
