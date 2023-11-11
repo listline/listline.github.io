@@ -21,27 +21,27 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.18.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="题目描述如题，现在有一个并查集，你需要完成合并和查询操作。 输入格式第一行包含两个整数 $N,M$ ,表示共有 $N$ 个元素和 $M$ 个操作。 接下来 $M$ 行，每行包含三个整数 $Z_i,X_i,Y_i$ 。 当 $Z_i&#x3D;1$ 时，将 $X_i$ 与 $Y_i$ 所在的集合合并。 当 $Z_i&#x3D;2$ 时，输出 $X_i$ 与 $Y_i$ 是否在同一集合内，是的输出 Y">
+    <meta name="description" content="题目背景A 地区在地震过后，连接所有村庄的公路都造成了损坏而无法通车。政府派人修复这些公路。 题目描述给出 A 地区的村庄数 $N$，和公路数 $M$，公路是双向的。并告诉你每条公路的连着哪两个村庄，并告诉你什么时候能修完这条公路。问最早什么时候任意两个村庄能够通车，即最早什么时候任意两条村庄都存在至少一条修复完成的道路（可以由多条公路连成一条道路）。 输入格式第 $1$ 行两个正整数 $N,M$">
 <meta property="og:type" content="article">
-<meta property="og:title" content="洛谷P3367【模板】并查集">
-<meta property="og:url" content="http://example.com/2023/09/17/%E5%B9%B6%E6%9F%A5%E9%9B%86/index.html">
+<meta property="og:title" content="洛谷P1111修复公路">
+<meta property="og:url" content="http://example.com/2023/11/11/repair-highway/index.html">
 <meta property="og:site_name" content="BlueSky">
-<meta property="og:description" content="题目描述如题，现在有一个并查集，你需要完成合并和查询操作。 输入格式第一行包含两个整数 $N,M$ ,表示共有 $N$ 个元素和 $M$ 个操作。 接下来 $M$ 行，每行包含三个整数 $Z_i,X_i,Y_i$ 。 当 $Z_i&#x3D;1$ 时，将 $X_i$ 与 $Y_i$ 所在的集合合并。 当 $Z_i&#x3D;2$ 时，输出 $X_i$ 与 $Y_i$ 是否在同一集合内，是的输出 Y">
+<meta property="og:description" content="题目背景A 地区在地震过后，连接所有村庄的公路都造成了损坏而无法通车。政府派人修复这些公路。 题目描述给出 A 地区的村庄数 $N$，和公路数 $M$，公路是双向的。并告诉你每条公路的连着哪两个村庄，并告诉你什么时候能修完这条公路。问最早什么时候任意两个村庄能够通车，即最早什么时候任意两条村庄都存在至少一条修复完成的道路（可以由多条公路连成一条道路）。 输入格式第 $1$ 行两个正整数 $N,M$">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-09-17T14:28:51.491Z">
-<meta property="article:modified_time" content="2023-11-11T10:29:39.939Z">
+<meta property="article:published_time" content="2023-11-11T10:25:57.405Z">
+<meta property="article:modified_time" content="2023-11-11T10:28:36.767Z">
 <meta property="article:author" content="listline">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://example.com/2023/09/17/%E5%B9%B6%E6%9F%A5%E9%9B%86/">
+<link rel="canonical" href="http://example.com/2023/11/11/repair-highway/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2023/09/17/%E5%B9%B6%E6%9F%A5%E9%9B%86/","path":"2023/09/17/并查集/","title":"洛谷P3367【模板】并查集"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2023/11/11/repair-highway/","path":"2023/11/11/repair-highway/","title":"洛谷P1111修复公路"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>洛谷P3367【模板】并查集 | BlueSky</title>
+<title>洛谷P1111修复公路 | BlueSky</title>
   
 
 
@@ -141,7 +141,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%BC%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F"><span class="nav-number">3.</span> <span class="nav-text">输出格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B-1"><span class="nav-number">4.</span> <span class="nav-text">样例 #1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B%E8%BE%93%E5%85%A5-1"><span class="nav-number">4.1.</span> <span class="nav-text">样例输入 #1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B%E8%BE%93%E5%87%BA-1"><span class="nav-number">4.2.</span> <span class="nav-text">样例输出 #1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%90%E7%A4%BA"><span class="nav-number">5.</span> <span class="nav-text">提示</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E8%83%8C%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">题目背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="nav-number">2.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%BC%E5%BC%8F"><span class="nav-number">3.</span> <span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F"><span class="nav-number">4.</span> <span class="nav-text">输出格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B-1"><span class="nav-number">5.</span> <span class="nav-text">样例 #1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B%E8%BE%93%E5%85%A5-1"><span class="nav-number">5.1.</span> <span class="nav-text">样例输入 #1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B%E8%BE%93%E5%87%BA-1"><span class="nav-number">5.2.</span> <span class="nav-text">样例输出 #1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%90%E7%A4%BA"><span class="nav-number">6.</span> <span class="nav-text">提示</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -195,7 +195,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/09/17/%E5%B9%B6%E6%9F%A5%E9%9B%86/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/11/11/repair-highway/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -208,12 +208,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="洛谷P3367【模板】并查集 | BlueSky">
+      <meta itemprop="name" content="洛谷P1111修复公路 | BlueSky">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          洛谷P3367【模板】并查集
+          洛谷P1111修复公路
         </h1>
 
         <div class="post-meta-container">
@@ -223,15 +223,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2023-09-17 22:28:51" itemprop="dateCreated datePublished" datetime="2023-09-17T22:28:51+08:00">2023-09-17</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-11-11 18:29:39" itemprop="dateModified" datetime="2023-11-11T18:29:39+08:00">2023-11-11</time>
+      <time title="创建时间：2023-11-11 18:25:57 / 修改时间：18:28:36" itemprop="dateCreated datePublished" datetime="2023-11-11T18:25:57+08:00">2023-11-11</time>
     </span>
 
   
@@ -248,7 +242,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>850</span>
+      <span>1.1k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -265,23 +259,17 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>如题，现在有一个并查集，你需要完成合并和查询操作。</p>
-<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>第一行包含两个整数 $N,M$ ,表示共有 $N$ 个元素和 $M$ 个操作。</p>
-<p>接下来 $M$ 行，每行包含三个整数 $Z_i,X_i,Y_i$ 。</p>
-<p>当 $Z_i&#x3D;1$ 时，将 $X_i$ 与 $Y_i$ 所在的集合合并。</p>
-<p>当 $Z_i&#x3D;2$ 时，输出 $X_i$ 与 $Y_i$ 是否在同一集合内，是的输出<br> <code>Y</code> ；否则输出 <code>N</code> 。</p>
-<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>对于每一个 $Z_i&#x3D;2$ 的操作，都有一行输出，每行包含一个大写字母，为 <code>Y</code> 或者 <code>N</code> 。</p>
-<h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 #1"></a>样例 #1</h2><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入 #1"></a>样例输入 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">4 7</span><br><span class="line">2 1 2</span><br><span class="line">1 1 2</span><br><span class="line">2 1 2</span><br><span class="line">1 3 4</span><br><span class="line">2 1 4</span><br><span class="line">1 2 3</span><br><span class="line">2 1 4</span><br></pre></td></tr></table></figure>
+    <div class="post-body" itemprop="articleBody"><h2 id="题目背景"><a href="#题目背景" class="headerlink" title="题目背景"></a>题目背景</h2><p>A 地区在地震过后，连接所有村庄的公路都造成了损坏而无法通车。政府派人修复这些公路。</p>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给出 A 地区的村庄数 $N$，和公路数 $M$，公路是双向的。并告诉你每条公路的连着哪两个村庄，并告诉你什么时候能修完这条公路。问最早什么时候任意两个村庄能够通车，即最早什么时候任意两条村庄都存在至少一条修复完成的道路（可以由多条公路连成一条道路）。</p>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>第 $1$ 行两个正整数 $N,M$。</p>
+<p>下面 $M$ 行，每行 $3$ 个正整数 $x,y,t$，告诉你这条公路连着 $x,y$ 两个村庄，在时间t时能修复完成这条公路。</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>如果全部公路修复完毕仍然存在两个村庄无法通车，则输出 $-1$，否则输出最早什么时候任意两个村庄能够通车。</p>
+<h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 #1"></a>样例 #1</h2><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入 #1"></a>样例输入 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">4 4</span><br><span class="line">1 2 6</span><br><span class="line">1 3 4</span><br><span class="line">1 4 5</span><br><span class="line">4 2 3</span><br></pre></td></tr></table></figure>
 
-<h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 #1"></a>样例输出 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">N</span><br><span class="line">Y</span><br><span class="line">N</span><br><span class="line">Y</span><br></pre></td></tr></table></figure>
+<h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 #1"></a>样例输出 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">5</span><br></pre></td></tr></table></figure>
 
-<h2 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h2><p>对于 $30%$ 的数据，$N \le 10$，$M \le 20$。</p>
-<p>对于 $70%$ 的数据，$N \le 100$，$M \le 10^3$。</p>
-<p>对于 $100%$ 的数据，$1\le N \le 10^4$，$1\le M \le 2\times 10^5$，$1 \le X_i, Y_i \le N$，$Z_i \in { 1, 2 }$。</p>
-<p>###代码</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">int</span> n, m, z, x, y, f[<span class="number">10005</span>];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">find</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(f[x] == x)</span><br><span class="line">        <span class="keyword">return</span> x;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> f[x] = <span class="built_in">find</span>(f[x]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n;i++)</span><br><span class="line">        f[i] = i;</span><br><span class="line">    <span class="keyword">while</span>(m--)&#123;</span><br><span class="line">        cin &gt;&gt; z &gt;&gt; x &gt;&gt; y;</span><br><span class="line">        <span class="keyword">if</span>(z == <span class="number">1</span>)</span><br><span class="line">            f[<span class="built_in">find</span>(y)] = <span class="built_in">find</span>(x);</span><br><span class="line">        <span class="keyword">else</span> </span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">find</span>(x) == <span class="built_in">find</span>(y))</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;Y\n&quot;</span>);</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;N\n&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
+<h2 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h2><p>$1\leq x, y\leq N \le 10 ^ 3$，$1\leq M, t \le 10 ^ 5$。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int n, m, f[100005];</span><br><span class="line">struct edge&#123;</span><br><span class="line">    int x,y,t;  //使用结构体定义两个村庄和修复时间</span><br><span class="line">&#125;e[100005];</span><br><span class="line">//找出x的根节点</span><br><span class="line">int find(int x)&#123;</span><br><span class="line">    return f[x] == x ? x : f[x] = find(f[x]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">bool cmp(edge a, edge b )&#123;</span><br><span class="line">    return a.t &lt; b.t;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">    int ans = 0,sum = 0;</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">    for(int i = 1; i &lt;= n; i++)</span><br><span class="line">        f[i] = i;</span><br><span class="line">    for(int i = 1; i &lt;= m; i++)</span><br><span class="line">        cin&gt;&gt;e[i].x&gt;&gt;e[i].y&gt;&gt;e[i].t;</span><br><span class="line">    sort(e+1,e+1+m,cmp);</span><br><span class="line">    for(int i = 1; i &lt;= m; i++)&#123;</span><br><span class="line">        int a = find(e[i].x);</span><br><span class="line">        int b = find(e[i].y);</span><br><span class="line">        if(a!= b)&#123;</span><br><span class="line">            f[a] = b;</span><br><span class="line">            sum++;</span><br><span class="line">            ans = max(ans,e[i].t);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    if(sum == n-1)</span><br><span class="line">        cout&lt;&lt;ans&lt;&lt;endl;</span><br><span class="line">    else</span><br><span class="line">        cout&lt;&lt;-1&lt;&lt;endl;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -306,7 +294,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://example.com/2023/09/17/%E5%B9%B6%E6%9F%A5%E9%9B%86/" title="洛谷P3367【模板】并查集">http://example.com/2023/09/17/并查集/</a>
+      <a href="http://example.com/2023/11/11/repair-highway/" title="洛谷P1111修复公路">http://example.com/2023/11/11/repair-highway/</a>
   </li>
   <li class="post-copyright-license">
       <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -319,14 +307,11 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2023/09/16/hello-world/" rel="prev" title="Hello World">
-                  <i class="fa fa-angle-left"></i> Hello World
+                <a href="/2023/11/11/%E4%BA%B2%E6%88%9A/" rel="prev" title="洛谷P1551亲戚">
+                  <i class="fa fa-angle-left"></i> 洛谷P1551亲戚
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2023/11/11/%E4%BA%B2%E6%88%9A/" rel="next" title="洛谷P1551亲戚">
-                  洛谷P1551亲戚 <i class="fa fa-angle-right"></i>
-                </a>
             </div>
           </div>
     </footer>
